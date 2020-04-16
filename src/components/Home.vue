@@ -4,7 +4,7 @@
     <el-header>
       <div>
         <img src="../assets/lg.png" alt />
-        <span>电商后台管理系统</span>
+        <span>科特电商后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -90,7 +90,7 @@ export default {
       const { data: res } = await this.$http.get('menus')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.menulist = res.data
-      console.log(res)
+      // console.log(res)
     },
     // 点击，菜单栏折叠与展开
     toggleCollapse() {
