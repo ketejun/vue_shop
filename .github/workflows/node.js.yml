@@ -28,10 +28,12 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Deploy
-      uses: easingthemes/ssh-deploy@v2.0.7
       env:
-        SSH_PRIVATE_KEY: ${{sercets.ALIYUN}}
+        CI: true
+    - name: Deploy
+      uses: easingthemes/ssh-deploy@v2
+      env:
+        SSH_PRIVATE_KEY: ${{secrets.ALIYUN}}
         ARGS: "-rltgoDzv0 --delet"
         SOURCE: "dist/"
         REMOTE_HOST: "47.96.109.136"
